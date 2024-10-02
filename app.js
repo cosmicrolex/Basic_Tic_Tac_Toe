@@ -20,13 +20,15 @@ const winPatterns = [
   [6, 7, 8],
 ];
 
-const showTie = ()=> {
-    outcomeText.innerHTML = `<h4>It's a tie</h4>`;
-    msgContainer.classList.remove("hide");
-}
+
 
 const showWinner = (winner) => {
   outcomeText.innerHTML = `winner <h4>${winner}</h4> `  ;
+  msgContainer.classList.remove("hide");
+};
+
+const showTie = () => {
+  outcomeText.innerHTML = `It's a Tie!`;
   msgContainer.classList.remove("hide");
 };
 
@@ -46,13 +48,7 @@ const enableBoxes = () =>  {
 
 }
 
-const tie = () => { 
-    for ( let  box of boxes ) {
-        if(box.innerText==""){
-            console.log("tie");
-        }
-    }
-} 
+
 
 //defining a function to check  winner after every time a box is clicked
 const checkWinner = (outcome) => {
@@ -65,11 +61,13 @@ const checkWinner = (outcome) => {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
         console.log("winner is ", pos1Val);
         showWinner(pos1Val);
-        disableBoxes(); //after a winner is declared, all boxes are disabled    s
+        disableBoxes(); //after a winner is declared, all boxes are disabled 
+        return true;
       }
     }
     
   }
+  return false; //if no winner found in all the winning patterns
 };
 
 const resetGame = () => { 
@@ -77,11 +75,24 @@ const resetGame = () => {
     msgContainer.classList.add("hide");
 }; 
 
+const checkTie = () => {
+  let isTie = true;
+  for (let box of boxes) {
+    if (box.innerText === "") {
+      isTie = false; // If there's an empty box, it's not a tie
+      break;
+    }
+  }
+  if (isTie) {
+    showTie(); // Display the tie message
+    disableBoxes(); // Disable boxes when it's a tie
+  }
+};
+
 //below is the main code that executes the game
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     console.log("box clicked");
-    tie();
     if (turn0) {
       box.innerText = "o";
       turn0 = false;
@@ -90,7 +101,9 @@ boxes.forEach((box) => {
       turn0 = true;
     }
     box.disabled = true; //to prevent double click change of x,0 once a box is clicked
-    checkWinner(); //after every click, it checks if any player has won
+    if (!checkWinner()) {
+      checkTie(); // If no winner, check for a tie
+    }//after every click, it checks if any player has won
   });
 });
 
