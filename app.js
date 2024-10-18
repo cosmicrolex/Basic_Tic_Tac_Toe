@@ -60,6 +60,8 @@ const checkWinner = (outcome) => {
     if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
         console.log("winner is ", pos1Val);
+
+        
         showWinner(pos1Val);
         disableBoxes(); //after a winner is declared, all boxes are disabled 
         return true;
