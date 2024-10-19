@@ -12,7 +12,7 @@
     sm:w-[20vw] sm:h-[20vh] sm:p-2 sm:text-[1.2rem]
   md:w-[40vw] md:h-[23vh] md:p-4 md:text-[1rem] 
   lg:max-w-auto lg:max-h-auto lg:p-6 lg:text-[1.8rem] lg:p-[5rem]
-  xl:w-[30vw] xl:h-[30vh] xl:p-5 xl:text-[2rem]
+  xl:w-[30vw] xl:h-[30vh] xl:p-5 xl:text-[2rem] 
     "><h1 id="outcome"
     class="
     text-[1rem]
@@ -24,17 +24,19 @@
     <!--here we are giving it two calsses , and a hide class to hide it-->
     <div class="container  justify-center items-center text-center font-extrabold text-1xl 
       ">
-      <h1 id="Title" class=" text-[#6439FF] m-auto mt-[1rem] inset-0 absolute
+      <h1 id="Title" class="z-11 text-[#6439FF] m-auto mt-[1rem] inset-0 absolute
       text-2xl
-      sm:text-3xl sm:m-auto mt-[10%]   
-      md:text-[6rem] md:mt-[10rem]
-      lg:text-4xl mt-[10%] 
-      xl:text-3xl mt-[10%]  ">
+      sm:text-3xl sm:m-[2rem]   
+      md:text-[4rem] 
+      lg:text-4xl 
+      xl:text-3xl xl:m-auto  ">
         Tic Tac Toe
       </h1>
       <div
         id="mainDiv"
-        class="mainDiv m-auto inset-0 absolute rounded m-auto bg-[#334155]    sm:bg-[#686D76] md:bg-[#686D76] lg:bg-[#686D76] xl:bg-[#0c0a09] 2xl:bg-[#818cf8] justify-center items-center w-[65vmin] h-[65vmin] flex flex-wrap gap-2"
+        class="mainDiv m-auto inset-0 absolute rounded m-auto bg-[#334155]  justify-center items-center w-[65vmin] h-[65vmin] flex flex-wrap gap-2
+        lg:mt-[5rem]
+        xl:mt-[4rem]"
       > 
         <button
           type="button"
@@ -87,12 +89,7 @@
       <button
   type="button"
   id="reset-btn"
-  class="flex items-center justify-center text-center bg-[#63a38e] hover:bg-[#4d7d6f] rounded-[1vh] border-none 
-         text-1xl px-[2rem] py-[1rem] 
-         sm:px-[2rem] sm:py-[1rem]
-         md:px-[4rem] md:py-[2rem] md:text-[3rem] md:absolute md:bottom-0 md:left-0 md:right-0 md:mb-[15rem] md:m-auto md:max-w-[10rem] md:max-h-[5rem]
-         lg:text-[2rem]
-         xl:text-1xl"
+  class="flex items-center justify-center text-center bg-[#63a38e] hover:bg-[#4d7d6f] rounded-[1vh] border-none text-1xl px-8 py-4 absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-16 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg  xl:max-w-xl "
 >
   Reset
 </button>
